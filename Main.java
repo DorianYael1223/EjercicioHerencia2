@@ -1,6 +1,6 @@
 package EjercicioHerencia2;
 
-public class Mian {
+public class Main {
     public static void main(String[] args) {
         try {
             PersonajeMagico mago = new PersonajeMagico("Potter", 18);
