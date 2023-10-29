@@ -1,11 +1,10 @@
 package EjercicioHerencia2;
 
-// Interfaz genérica para habilidades
+// Generic interface for abilities
 interface Habilidades<T> {
     void usarHabilidad(T habilidad);
 }
-
-// Clase abstracta Personaje que implementa la interfaz genérica Habilidades
+// Abstract class Personaje that implements the generic interface Habilidades
 abstract class Personaje implements Habilidades<String> {
     protected String nombrePersonaje;
     protected int nivel;
@@ -17,12 +16,10 @@ abstract class Personaje implements Habilidades<String> {
         this.nombrePersonaje = nombrePersonaje;
         this.nivel = nivel;
     }
-
-    // Método abstracto para atacar
+    // Abstract method for attacking
     public abstract void atacar();
-
-    // Método de la interfaz Habilidades
+    // Method from the Habilidades interface
     public void usarHabilidad(String habilidad) {
-        // Implementación para usar habilidad
+        // Implementation for using an ability
     }
 }

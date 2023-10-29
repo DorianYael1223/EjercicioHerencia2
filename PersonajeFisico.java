@@ -1,20 +1,25 @@
 package EjercicioHerencia2;
 
-// Clase que implementa habilidades físicas
-// Clase que implementa habilidades físicas
-class PersonajeFisico  extends Personaje {
+// Class that implements physical abilities
+class PersonajeFisico extends Personaje {
     public PersonajeFisico(String nombrePersonaje, int nivel) {
+        // Call the constructor of the superclass (Personaje)
         super(nombrePersonaje, nivel);
     }
 
+    // Implementation of the abstract 'atacar' method
     public void atacar() {
         if (nivel < 5) {
-            throw new RuntimeException(nombrePersonaje + " no puede atacar porque su nivel es menor a 5");
+            // If the character's level is less than 5, throw an exception
+            throw new RuntimeException(nombrePersonaje + " cannot attack because their level is less than 5");
         }
-        System.out.println(nombrePersonaje + " ¡atacando!");
+        // Otherwise, print a message indicating the character is attacking
+        System.out.println(nombrePersonaje + " is attacking!");
     }
 
+    // New method specific to PersonajeFisico for using physical abilities
     public void usarHabilidadFisica() {
-        System.out.println(nombrePersonaje + " está usando una habilidad física");
+        // Print a message indicating that the character is using a physical ability
+        System.out.println(nombrePersonaje + " is using a physical ability");
     }
 }
