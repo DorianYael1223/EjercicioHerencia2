@@ -1,38 +1,34 @@
 @startuml
 
+interface Habilidades<T> {
+  {abstract}
+  +usarHabilidad(T habilidad)
+}
+
 abstract class Personaje {
   -nombrePersonaje: String
   -nivel: int
-  {abstract} +atacar(): void
-}
-
-interface HabilidadesMagicas {
-  +lanzarHechizo(): void
-}
-
-interface HabilidadesFisicas {
-  +usarHabilidadFisica(): void
-}
-
-class PersonajeMagico {
-  -nombrePersonaje: String
-  -nivel: int
-  +PersonajeMagico(nombrePersonaje: String, nivel: int)
+  {abstract}
+  +Personaje(nombrePersonaje: String, nivel: int)
+  {abstract}
   +atacar(): void
-  +lanzarHechizo(): void
+  +usarHabilidad(habilidad: String): void
 }
 
 class PersonajeFisico {
-  -nombrePersonaje: String
-  -nivel: int
   +PersonajeFisico(nombrePersonaje: String, nivel: int)
   +atacar(): void
   +usarHabilidadFisica(): void
 }
 
-PersonajeMagico --|> Personaje : hereda
-PersonajeMagico ..|> HabilidadesMagicas : implementa
-PersonajeFisico --|> Personaje : hereda
-PersonajeFisico ..|> HabilidadesFisicas : implementa
+class PersonajeMagico {
+  +PersonajeMagico(nombrePersonaje: String, nivel: int)
+  +atacar(): void
+  +lanzarHechizo(): void
+}
+
+Personaje --|> Habilidades
+PersonajeFisico --|> Personaje
+PersonajeMagico --|> Personaje
 
 @enduml
