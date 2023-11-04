@@ -1,33 +1,64 @@
-@startuml
+@startuml Persoanjes
 
 interface Habilidades<T> {
-  {abstract}
-  +usarHabilidad(T habilidad)
+    +usarHabilidad(habilidad: T): void
 }
 
 abstract class Personaje {
-  -nombrePersonaje: String
-  -nivel: int
-  {abstract}
-  +Personaje(nombrePersonaje: String, nivel: int)
-  {abstract}
-  +atacar(): void
-  +usarHabilidad(habilidad: String): void
+    -nombrePersonaje: String
+    -nivel: int
+    +Personaje(nombrePersonaje: String, nivel: int)
+    +atributosPersonajes(): String
+    +atacar(): void
+    +usarHabilidad(habilidad: String): void
 }
 
 class PersonajeFisico {
-  +PersonajeFisico(nombrePersonaje: String, nivel: int)
-  +atacar(): void
-  +usarHabilidadFisica(): void
+    +PersonajeFisico(nombrePersonaje: String, nivel: int)
+    +atacar(): void
+    +usarHabilidad(habilidad: String): void
+    +usarHabilidadFisica(): void
 }
 
 class PersonajeMagico {
-  +PersonajeMagico(nombrePersonaje: String, nivel: int)
-  +atacar(): void
-  +lanzarHechizo(): void
+    +PersonajeMagico(nombrePersonaje: String, nivel: int)
+    +atacar(): void
+    +usarHabilidad(habilidad: String): void
+    +usarHabilidadMagica(): void
 }
 
+class ArrayList<T> {
+    // Métodos de la clase ArrayList
+}
+
+class Collections {
+    // Métodos de la clase Collections
+}
+
+class Iterator<T> {
+    +hasNext(): boolean
+    +next(): T
+}
+
+class List<T> {
+    // Métodos de la clase List
+}
+
+class Main {
+    public static main(args: String[]): void
+}
+
+Main --> List<Personaje>
+Main --> ArrayList<Personaje>
+Main --> Collections
+Main --> Iterator<Personaje>
+
+Main --|> Personaje
+Main --|> PersonajeFisico
+Main --|> PersonajeMagico
+
 Personaje --|> Habilidades
+
 PersonajeFisico --|> Personaje
 PersonajeMagico --|> Personaje
 
